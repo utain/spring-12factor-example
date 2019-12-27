@@ -1,0 +1,28 @@
+version: "3.7"
+
+networks:
+  app-network:
+services:
+  spring-boot:
+    build: .
+    container_name: spring-boot-example-12-factor
+    image: utain/spring-boot-example-12-factor
+    expose:
+      - "8088"
+    ports:
+      - "8088:8088"
+    networks:
+      - app-network
+    depends_on: 
+      - db
+  db:
+    image: postgres:12.1-alpine
+    container_name: postgres
+    ports: 
+      - "5433:5432"
+    environment: 
+      - POSTGRES_PASSWORD=P@55w0rd
+      - POSTGRES_USER=example
+      - POSTGRES_DB=example
+    networks: 
+      - app-network
