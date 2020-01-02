@@ -15,3 +15,9 @@ jobs:
         java-version: 1.8
     - name: Build with Maven
       run: mvn -B package --file pom.xml
+    - name: Build docker login
+      run: docker login docker.pkg.github.com --username utain
+    - name: Build docker
+      run: docker build -t docker.pkg.github.com/utain/spring-12factor-example/server:latest
+    - name: Push docker image to github
+      run: docker push docker.pkg.github.com/utain/spring-12factor-example/server:latest
