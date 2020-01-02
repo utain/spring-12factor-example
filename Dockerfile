@@ -5,7 +5,7 @@ ADD ./pom.xml /app/pom.xml
 RUN mvn dependency:go-offline
 
 ADD . /app
-RUN mvn install
+RUN mvn -B package
 
 FROM openjdk:8u111-jdk-alpine as finally
 EXPOSE 8088
