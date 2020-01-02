@@ -16,6 +16,6 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
     - name: Build docker
-      run: docker build -t docker.pkg.github.com/utain/spring-12factor-example/server:latest
+      run: docker build -t docker.pkg.github.com/utain/spring-12factor-example/server:latest .
     - name: Push docker image to github
       run: docker push docker.pkg.github.com/utain/spring-12factor-example/server:latest
