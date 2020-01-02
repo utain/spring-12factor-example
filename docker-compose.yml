@@ -5,8 +5,8 @@ networks:
 services:
   spring-boot:
     build: .
-    container_name: spring-boot-example-12-factor
-    image: utain/spring-boot-example-12-factor
+    container_name: spring-12factor-example
+    image: docker.pkg.github.com/utain/spring-12factor-example/server:latest
     expose:
       - "8088"
     ports:
