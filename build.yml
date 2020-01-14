@@ -4,7 +4,9 @@ networks:
   app-network:
 services:
   spring-boot:
-    image: maven:3.6.3-jdk-8-slim
+    build: .
+    container_name: spring-12factor-example
+    image: docker.pkg.github.com/utain/spring-12factor-example/server:latest
     expose:
       - "8088"
     ports:
@@ -13,14 +15,9 @@ services:
       - app-network
     depends_on: 
       - db
-    working_dir: /app/
-    volumes: 
-      - ./:/app/
-      - $HOME/.m2/:/root/.m2/
-    command: mvn spring-boot:run -Dspring-boot.run.profiles=dockerdev
   db:
     image: postgres:12.1-alpine
-    container_name: spring_pg_dev
+    container_name: postgres
     ports: 
       - "5433:5432"
     environment: 

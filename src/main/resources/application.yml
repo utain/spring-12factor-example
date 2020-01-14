@@ -1,14 +1,2 @@
 server:
-  port: 8880
-spring:
-  jpa: 
-    database: postgresql
-    hibernate:
-      ddl-auto: update
-    show-sql: true
-    open-in-view: false
-  datasource:
-    url: jdbc:postgresql://localhost:5432/example?currentSchema=example
-    username: example
-    password: P@55w0rd
-    driver-class-name: org.postgresql.Driver
+  port: 8088
