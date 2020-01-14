@@ -3,6 +3,7 @@ package com.utain.app12.javaexample;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
@@ -13,7 +14,7 @@ public class Products {
   private String name;
   private String code;
   private String description;
-  @OneToMany(mappedBy = "productId")
+  @OneToMany(mappedBy = "productId", fetch = FetchType.LAZY)
   private List<ProductProps> props;
 
   public String getId() {

@@ -4,8 +4,6 @@ networks:
   app-network:
 services:
   spring-boot:
-    build: .
-    container_name: spring-12factor-example
     image: docker.pkg.github.com/utain/spring-12factor-example/server:latest
     expose:
       - "8088"
@@ -17,7 +15,6 @@ services:
       - db
   db:
     image: postgres:12.1-alpine
-    container_name: postgres
     ports: 
       - "5433:5432"
     environment: 

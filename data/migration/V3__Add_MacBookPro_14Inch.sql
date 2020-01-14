@@ -1,0 +1,1 @@
+INSERT INTO "products" ("id","name","code","description") VALUES ('1','MacBook Pro 14" 2020', 'mbp142020','Very Good Product!');

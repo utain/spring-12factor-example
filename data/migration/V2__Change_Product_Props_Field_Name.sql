@@ -1,0 +1,1 @@
+ALTER TABLE "product_props" RENAME COLUMN "productId" TO "product_id";

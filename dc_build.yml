@@ -4,7 +4,8 @@ networks:
   app-network:
 services:
   spring-boot:
-    image: maven:3.6.3-jdk-8-slim
+    build: .
+    image: docker.pkg.github.com/utain/spring-12factor-example/server:latest
     expose:
       - "8088"
     ports:
@@ -13,12 +14,6 @@ services:
       - app-network
     depends_on: 
       - db
-    working_dir: /app/
-    volumes: 
-      - ./:/app/
-      - $HOME/.m2/:/root/.m2/
-      - ./data/migration:/opt/migration/
-    command: mvn spring-boot:run -Dspring-boot.run.profiles=dockerdev
   db:
     image: postgres:12.1-alpine
     ports: 
